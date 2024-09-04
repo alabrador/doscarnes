@@ -2,6 +2,7 @@ import React from 'react';
 import TopHeader from './components/TopHeader';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import CallActions from './components/CallActions';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <TopHeader />
       <Header />
       <Hero />
+      <CallActions />
       {/* Otros componentes de la página */}
     </div>
   );
