@@ -3,7 +3,7 @@ import hero from '../img/hero/top_1.jpg';
 
 const Hero = () => {
   return (
-    <div className="relative h-screem bg-no-repeat bg-cover bg-top">
+    <div className="relative data-twe-lazy-load-init h-screem bg-no-repeat bg-cover bg-top">
       <img src={hero} alt="hero" />
       <div className="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center text-center p-4">
         <h1 className="text-white text-4xl md:text-6xl font-bold mb-4">
