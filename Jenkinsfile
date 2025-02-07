@@ -10,14 +10,14 @@ pipeline {
         stage('Instalar Dependencias') {
             steps {
                 script {
-                    sh 'npm install'
+                    sh 'pnpm install'
                 }
             }
         }
         stage('Construir Proyecto Astro') {
             steps {
                 script {
-                    sh 'npm run build'
+                    sh 'pnpm run build'
                 }
             }
         }
