@@ -1,0 +1,59 @@
+---
+import arepas from '../img/products/arepas.webp';
+import empanadas from '../img/products/empanadas.webp';
+import tequenos from '../img/products/tequenos.webp';
+import pastelitos from '../img/products/pastelitos.webp';
+import cachapas from '../img/products/cachapas.webp';
+import postres from '../img/products/tortas.webp';
+---
+
+<div class="bg-black grid grid-cols-2 md:grid-cols-3 gap-0">
+    <div class="relative overflow-hidden bg-cover bg-no-repeat ">
+        <img src={arepas.src} alt="Arepas" />
+        <a href="#!">
+            <div class="justify-center items-center text-center absolute bottom-0 left-0 right-0 h-full w-full overflow-hidden bg-black bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
+                <p class="absolute inset-0 flex items-center justify-center font-righteous text-white text-4xl md:text-6xl font-bold mb-4">Arepas</p>
+            </div>
+        </a>
+    </div>
+    <div class="relative overflow-hidden bg-cover bg-no-repeat">
+        <img src={empanadas.src} alt="Empanadas" />
+        <a href="#!">
+            <div class="justify-center items-center text-center absolute bottom-0 left-0 right-0 h-full w-full overflow-hidden bg-black bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
+                <p class="absolute inset-0 flex items-center justify-center font-righteous text-white text-4xl md:text-6xl font-bold mb-4">Empanadas</p>
+            </div>
+        </a>
+    </div>
+    <div class="relative overflow-hidden bg-cover bg-no-repeat">
+        <img src={tequenos.src} alt="Tequeños" />
+        <a href="#!">
+            <div class="justify-center items-center text-center absolute bottom-0 left-0 right-0 h-full w-full overflow-hidden bg-black bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
+                <p class="absolute inset-0 flex items-center justify-center font-righteous text-white text-4xl md:text-6xl font-bold mb-4">Tequeños</p>
+            </div>
+        </a>
+    </div>
+    <div class="relative overflow-hidden bg-cover bg-no-repeat">
+        <img src={pastelitos.src} alt="Pastelitos" />
+        <a href="#!">
+            <div class="justify-center items-center text-center absolute bottom-0 left-0 right-0 h-full w-full overflow-hidden bg-black bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
+                <p class="absolute inset-0 flex items-center justify-center font-righteous text-white text-4xl md:text-6xl font-bold mb-4">Pastelitos</p>
+            </div>
+        </a>
+    </div>
+    <div class="relative overflow-hidden bg-cover bg-no-repeat">
+        <img src={cachapas.src} alt="Cachapas" />
+        <a href="#!">
+            <div class="justify-center items-center text-center absolute bottom-0 left-0 right-0 h-full w-full overflow-hidden bg-black bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
+                <p class="absolute inset-0 flex items-center justify-center font-righteous text-white text-4xl md:text-6xl font-bold mb-4">Cachapas</p>
+            </div>
+        </a>
+    </div>
+    <div class="relative overflow-hidden bg-cover bg-no-repeat">
+        <img src={postres.src} alt="Postres" />
+        <a href="#!">
+            <div class="justify-center items-center text-center absolute bottom-0 left-0 right-0 h-full w-full overflow-hidden bg-black bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
+                <p class="absolute inset-0 flex items-center justify-center font-righteous text-white text-4xl md:text-6xl font-bold mb-4">Tartas</p>
+            </div>
+        </a>
+    </div>
+</div>

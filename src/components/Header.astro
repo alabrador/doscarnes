@@ -1,0 +1,31 @@
+---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import logo from '../img/logo_doscarnes.png';
+import arepa from '../img/arepa.png'
+---
+
+<div class="font-poppins bg-header text-white p-5">
+    <div class="max-w-screen-xl flex flex-wrap mx-auto container justify-between items-center">
+       {/*Frase*/}
+       <div class="flex text-1x1 font-bold text-2xl">
+           <p>Reserve su pedido<a href="/" class="text-top text-3xl"> Ahora!</a></p>
+       </div>
+
+       {/*Logo*/}
+        <div class="flex absolute z-40 left-1/2 transform -translate-x-1/2">
+          <a href="/"><img src={logo.src} alt="logo" /></a>
+        </div>
+        <div class="flex absolute z-40 left-1/2 transform -translate-x-1/2">
+          <a href="/"><img src={arepa.src} class="animate-wiggle-more animate-infinite animate-duration-[3000ms]" alt="logo" /></a>
+        </div>
+
+       {/* Menu */}
+       <nav class="hidden md:flex space-x-2 font-bold font-poppins text-white">
+        <button class="px-4 py-2 hover:border-top hover:border-2 border-2 border-transparent">Inicio</button>
+        <button class="px-4 py-2 hover:border-top hover:border-2 border-2 border-transparent">La carta</button>
+        <button class="px-4 py-2 hover:border-top hover:border-2 border-2 border-transparent">Reservar</button>
+        <button class="px-4 py-2 hover:border-top hover:border-2 border-2 border-transparent">Delivery</button>
+        <button class="px-4 py-2 hover:border-top hover:border-2 border-2 border-transparent">Contacto</button>
+       </nav>
+    </div>
+  </div>

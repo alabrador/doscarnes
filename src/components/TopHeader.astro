@@ -1,0 +1,32 @@
+---
+import { faFacebook, faXTwitter, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+---
+
+<nav class="bg-top p-2.5">
+    <div class="max-w-screen-xl flex flex-wrap mx-auto container justify-between items-center">
+
+      {/* Correo */}
+      <div class="font-poppins flex space-x-4 font-bold text-black text-xl">
+        <a href="mailto:pedidos@doscarnes.com" class="hover:text-white">
+          pedidos@doscarnes.com
+        </a>
+      </div>
+
+      {/* Redes Sociales */}
+      <div class="flex space-x-2 text-center content-center">
+        <a href="https://facebook.com" class="box-content h-4 w-4 p-2 bg-black text-white hover:text-top">
+          <FontAwesomeIcon icon={faFacebook} />
+        </a>
+        <a href="https://twitter.com" class="box-content h-4 w-4 p-2 bg-black text-white hover:text-top">
+          <FontAwesomeIcon icon={faXTwitter} />
+        </a>
+        <a href="https://instagram.com" class="box-content h-4 w-4 p-2 bg-black text-white hover:text-top">
+          <FontAwesomeIcon icon={faInstagram} />
+        </a>
+        <a href="https://whatsapp.com" class="box-content h-4 w-4 p-2 bg-black text-white hover:text-top">
+          <FontAwesomeIcon icon={faWhatsapp} />
+        </a>
+      </div>
+    </div>
+</nav>
