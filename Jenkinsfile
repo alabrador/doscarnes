@@ -25,17 +25,11 @@ pipeline {
         }
         stage('Deploy Project Astro') {
             steps {
-                try {
-                    script {
-                        sh 'pnpm run build'
-                        sendTelegramMessage("✅ Build completado con éxito")
-                        } 
-                    catch (Exception e) {
-                    sendTelegramMessage("❌ Error en Build: ${e.message}")
-                    error "Fallo en Build"
-                    }
+                script {
+                    sh 'pnpm run build'
+                    sendTelegramMessage("✅ Build completado con éxito")
+                    } 
                 }
-            }
         }
         stage('Upload Project AWS S3') {
             steps {
