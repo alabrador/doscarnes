@@ -1,5 +1,5 @@
 import animations from 'tailwindcss-animated'
-/** @type {import('tailwindcss').Config} */
+
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
@@ -7,10 +7,10 @@ export default {
 		colors: {
 			transparent: 'transparent',
 			current: 'currentColor',
-			'top': '#ffce00',
-			'header': '#000',
-			'white': '#fff',
-			'black': '#000',
+			top: "var(--color-top)",
+			header: "var(--color-header)",
+			white: "var(--color-white)",
+			black: "var(--color-black)",
 		},
 		fontFamily: {
 			poppins: ['Poppins', 'sans-serif'],

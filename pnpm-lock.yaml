@@ -26,6 +26,12 @@ importers:
       '@fontsource/inter':
         specifier: ^5.1.1
         version: 5.1.1
+      '@fontsource/poppins':
+        specifier: ^5.1.1
+        version: 5.1.1
+      '@fontsource/righteous':
+        specifier: ^5.1.1
+        version: 5.1.1
       '@fortawesome/fontawesome-svg-core':
         specifier: ^6.7.2
         version: 6.7.2
@@ -392,6 +398,12 @@ packages:
 
   '@fontsource/inter@5.1.1':
     resolution: {integrity: sha512-weN3E+rq0Xb3Z93VHJ+Rc7WOQX9ETJPTAJ+gDcaMHtjft67L58sfS65rAjC5tZUXQ2FdZ/V1/sSzCwZ6v05kJw==}
+
+  '@fontsource/poppins@5.1.1':
+    resolution: {integrity: sha512-PQVKHGQOK+UpVNPzTFF9Z9ez3CIDkunfvRXGH95hiDoqWJc1shW4JFqe4tEoqnq7RtZaYrw9aWQq58L4eny5xg==}
+
+  '@fontsource/righteous@5.1.1':
+    resolution: {integrity: sha512-KfNF78uVk/5K0hti7+R7/SlV0v02Z+qTzRbrTNuWasqIZim5a2YslHwdr0VDnkmfBqOzbYTRfi/NPNTTk0siYA==}
 
   '@fortawesome/fontawesome-common-types@6.7.2':
     resolution: {integrity: sha512-Zs+YeHUC5fkt7Mg1l6XTniei3k4bwG/yo3iFUtZWd/pMx9g3fdvkSK9E0FOC+++phXOka78uJcYb8JaFkW52Xg==}
@@ -2926,6 +2938,10 @@ snapshots:
     optional: true
 
   '@fontsource/inter@5.1.1': {}
+
+  '@fontsource/poppins@5.1.1': {}
+
+  '@fontsource/righteous@5.1.1': {}
 
   '@fortawesome/fontawesome-common-types@6.7.2': {}
 
