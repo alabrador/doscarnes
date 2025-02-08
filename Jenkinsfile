@@ -14,21 +14,21 @@ pipeline {
                 }
             }
         }
-        stage('Project Test Astro') {
+        stage('Check Project Astro') {
             steps {
                 script {
                     sh 'pnpm astro check'
                 }
             }
         }
-        stage('Project Deploy Astro') {
+        stage('Deploy Project Astro') {
             steps {
                 script {
                     sh 'pnpm run build'
                 }
             }
         }
-        stage('Project Upload AWS S3') {
+        stage('Upload Project AWS S3') {
             steps {
                 withAWS(credentials: 'aws-alabrador', region: 'eu-central-1') {
                     sh 'aws s3 sync ./dist/ s3://$BUCKET --delete --exclude ".git/*"'
