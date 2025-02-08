@@ -33,27 +33,47 @@ pipeline {
         stage('Deploy Project Astro') {
             steps {
                 script {
-                    sh 'pnpm run build'
-                    sendTelegramMessage("✅ Construcción completada con éxito")
-                    } 
+                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE'){
+                        sh 'pnpm run build'
+                    }
+                        if (currentBuild.currentResult == 'FAILURE') {
+                            sendTelegramMessage("❌ Construcción fallida")
+                        } else {
+                            sendTelegramMessage("✅ Construcción completada con éxito")
+                    }    
                 }
+            }
         }
         stage('Upload Project AWS S3') {
             steps {
-                withAWS(credentials: 'aws-alabrador', region: 'eu-central-1') {
-                    sh 'aws s3 sync ./dist/ s3://$BUCKET --delete --exclude ".git/*"'
-                    sh 'aws s3 ls s3://$BUCKET'
-                    sendTelegramMessage("✅ Subida a AWS S3 completada con éxito")
-                }
+                script {
+                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE'){
+                        withAWS(credentials: 'aws-alabrador', region: 'eu-central-1') {
+                            sh 'aws s3 sync ./dist/ s3://$BUCKET --delete --exclude ".git/*"'
+                            sh 'aws s3 ls s3://$BUCKET'
+                        }
+                    }
+                        if (currentBuild.currentResult == 'FAILURE') {
+                            sendTelegramMessage("❌ Construcción fallida")
+                        } else {
+                            sendTelegramMessage("✅ Subida a AWS S3 completada con éxito")
+                    }
+                }               
             }
-
         }
         stage('Invalidate Cache CloudFront') {
             steps {
                 script {
-                    withAWS(credentials: 'aws-alabrador', region: 'eu-central-1') {
-                        sh 'aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*" --region ${AWS_REGION}'
-                        sendTelegramMessage("✅ Limpieza de cache completada con éxito")
+                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE'){
+                        withAWS(credentials: 'aws-alabrador', region: 'eu-central-1') {
+                            sh 'aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*" --region ${AWS_REGION}'
+                            
+                        }
+                    }
+                        if (currentBuild.currentResult == 'FAILURE') {
+                            sendTelegramMessage("❌ Limpieza fallida")
+                        } else {
+                            sendTelegramMessage("✅ Limpieza de cache completada con éxito")
                     }
                 }
             }
