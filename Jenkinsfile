@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        TELEGRAM_BOT_TOKEN = credentials('7327847658:AAFtJCDHLziKfxDAtdy-pLOKuGJojQ9U-Fo')
+        TELEGRAM_BOT_TOKEN = credentials('TELEGRAM_BOT_TOKEN')
         TELEGRAM_CHAT_ID = '7883793545'
         BUCKET = "doscarnes"
         CLOUDFRONT_DISTRIBUTION_ID = "E2EGY63Z0GY3PT"
