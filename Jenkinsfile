@@ -20,6 +20,7 @@ pipeline {
             steps {
                 script {
                     sh 'pnpm astro check'
+                    sendTelegramMessage("✅ Prueba completada con éxito")
                 }
             }
         }
@@ -27,7 +28,7 @@ pipeline {
             steps {
                 script {
                     sh 'pnpm run build'
-                    sendTelegramMessage("✅ Build completado con éxito")
+                    sendTelegramMessage("✅ Construcción completada con éxito")
                     } 
                 }
         }
@@ -36,6 +37,7 @@ pipeline {
                 withAWS(credentials: 'aws-alabrador', region: 'eu-central-1') {
                     sh 'aws s3 sync ./dist/ s3://$BUCKET --delete --exclude ".git/*"'
                     sh 'aws s3 ls s3://$BUCKET'
+                    sendTelegramMessage("✅ Subida a AWS S3 completada con éxito")
                 }
             }
 
@@ -45,6 +47,7 @@ pipeline {
                 script {
                     withAWS(credentials: 'aws-alabrador', region: 'eu-central-1') {
                         sh 'aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*" --region ${AWS_REGION}'
+                        sendTelegramMessage("✅ Limpieza de cache completada con éxito")
                     }
                 }
             }
@@ -53,12 +56,12 @@ pipeline {
     post {
         success {
             script {
-                sendTelegramMessage("🎉 Pipeline completado exitosamente")
+                sendTelegramMessage("🎉 Despliegue completado exitosamente")
             }
         }
         failure {
             script {
-                sendTelegramMessage("🚨 Pipeline falló en algún stage")
+                sendTelegramMessage("🚨 Despliegue falló en algún stage")
             }
         }
     }
