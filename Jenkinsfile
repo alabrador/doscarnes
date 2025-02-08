@@ -1,6 +1,8 @@
 pipeline {
     agent any
     environment {
+        TELEGRAM_BOT_TOKEN = credentials('7327847658:AAFtJCDHLziKfxDAtdy-pLOKuGJojQ9U-Fo')
+        TELEGRAM_CHAT_ID = '7883793545'
         BUCKET = "doscarnes"
         CLOUDFRONT_DISTRIBUTION_ID = "E2EGY63Z0GY3PT"
         AWS_REGION = "eu-central-1"
@@ -23,8 +25,15 @@ pipeline {
         }
         stage('Deploy Project Astro') {
             steps {
-                script {
-                    sh 'pnpm run build'
+                try {
+                    script {
+                        sh 'pnpm run build'
+                        sendTelegramMessage("✅ Build completado con éxito")
+                        } 
+                    catch (Exception e) {
+                    sendTelegramMessage("❌ Error en Build: ${e.message}")
+                    error "Fallo en Build"
+                    }
                 }
             }
         }
