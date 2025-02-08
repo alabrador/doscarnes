@@ -56,6 +56,18 @@ pipeline {
             }
         }
     }
+    post {
+        success {
+            script {
+                sendTelegramMessage("🎉 Pipeline completado exitosamente")
+            }
+        }
+        failure {
+            script {
+                sendTelegramMessage("🚨 Pipeline falló en algún stage")
+            }
+        }
+    }
 }
 
 // Función para enviar mensajes a Telegram
