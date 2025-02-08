@@ -7,28 +7,28 @@ pipeline {
     }
 
     stages {
-        stage('Instalar Dependencias') {
+        stage('Install Requirements') {
             steps {
                 script {
                     sh 'pnpm install'
                 }
             }
         }
-        stage('Construir Proyecto Astro') {
-            steps {
-                script {
-                    sh 'pnpm run build'
-                }
-            }
-        }
-        stage('Prueba Proyecto Astro') {
+        stage('Project Test Astro') {
             steps {
                 script {
                     sh 'pnpm astro check'
                 }
             }
         }
-        stage('Subir proyecto AWS s3') {
+        stage('Project Deploy Astro') {
+            steps {
+                script {
+                    sh 'pnpm run build'
+                }
+            }
+        }
+        stage('Project Upload AWS S3') {
             steps {
                 withAWS(credentials: 'aws-alabrador', region: 'eu-central-1') {
                     sh 'aws s3 sync ./dist/ s3://$BUCKET --delete --exclude ".git/*"'
@@ -37,7 +37,7 @@ pipeline {
             }
 
         }
-        stage('Invalidar Cache CloudFront') {
+        stage('Invalidate Cache CloudFront') {
             steps {
                 script {
                     withAWS(credentials: 'aws-alabrador', region: 'eu-central-1') {
