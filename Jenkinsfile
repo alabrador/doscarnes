@@ -21,6 +21,13 @@ pipeline {
                 }
             }
         }
+        stage('Prueba Proyecto Astro') {
+            steps {
+                script {
+                    sh 'pnpm run test'
+                }
+            }
+        }
         stage('Subir proyecto AWS s3') {
             steps {
                 withAWS(credentials: 'aws-alabrador', region: 'eu-central-1') {
