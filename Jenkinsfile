@@ -47,33 +47,20 @@ pipeline {
         stage('Upload Project AWS S3') {
             steps {
                 script {
-                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE'){
-                        withAWS(credentials: 'aws-alabrador', region: 'eu-central-1') {
-                            sh 'aws s3 sync ./dist/ s3://$BUCKET --delete --exclude ".git/*"'
-                            sh 'aws s3 ls s3://$BUCKET'
-                        }
+                    withAWS(credentials: 'aws-alabrador', region: 'eu-central-1') {
+                        sh 'aws s3 sync ./dist/ s3://$BUCKET --delete --exclude ".git/*"'
+                        sh 'aws s3 ls s3://$BUCKET'
+                        sendTelegramMessage("✅ Subida a AWS S3 completada con éxito")
                     }
-                        if (currentBuild.currentResult == 'FAILURE') {
-                            sendTelegramMessage("❌ Construcción fallida")
-                        } else {
-                            sendTelegramMessage("✅ Subida a AWS S3 completada con éxito")
-                    }
-                }               
-            }
+                }
+            }               
         }
         stage('Invalidate Cache CloudFront') {
             steps {
                 script {
-                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE'){
-                        withAWS(credentials: 'aws-alabrador', region: 'eu-central-1') {
-                            sh 'aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*" --region ${AWS_REGION}'
-                            
-                        }
-                    }
-                        if (currentBuild.currentResult == 'FAILURE') {
-                            sendTelegramMessage("❌ Limpieza fallida")
-                        } else {
-                            sendTelegramMessage("✅ Limpieza de cache completada con éxito")
+                    withAWS(credentials: 'aws-alabrador', region: 'eu-central-1') {
+                        sh 'aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*" --region ${AWS_REGION}'
+                        sendTelegramMessage("✅ Limpieza de cache completada con éxito")
                     }
                 }
             }
