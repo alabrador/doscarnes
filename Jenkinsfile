@@ -24,7 +24,7 @@ pipeline {
         stage('Prueba Proyecto Astro') {
             steps {
                 script {
-                    sh 'pnpm run test'
+                    sh 'pnpm run dev'
                 }
             }
         }
