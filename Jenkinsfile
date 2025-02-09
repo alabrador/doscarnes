@@ -19,8 +19,14 @@ pipeline {
         stage('Check Project Astro') {
             steps {
                 script {
-                    sh 'pnpm astro check'
-                    sendTelegramMessage("✅ Prueba completada con éxito")
+                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE'){
+                        sh 'pnpm astro check'
+                    }
+                        if (currentBuild.currentResult == 'FAILURE') {
+                            sendTelegramMessage("❌ Prueba fallida")
+                        } else {
+                            sendTelegramMessage("✅ Prueba completada con éxito")
+                    }
                 }
             }
         }
