@@ -40,7 +40,7 @@ pipeline {
                             sendTelegramMessage("❌ Construcción fallida")
                         } else {
                             sendTelegramMessage("✅ Construcción completada con éxito")
-                    }    
+                    }   
                 }
             }
         }
@@ -53,7 +53,7 @@ pipeline {
                         sendTelegramMessage("✅ Subida a AWS S3 completada con éxito")
                     }
                 }
-            }               
+            }
         }
         stage('Invalidate Cache CloudFront') {
             steps {
