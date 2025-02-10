@@ -1,34 +1,74 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import TopHeader from '../components/TopHeader.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import CallBanner from '../components/CallBanner.astro';
-import BannerDoscarnes from '../components/BannerDoscarnes.astro';
-import Products from '../components/Products.astro';
-import BannerCarta from '../components/BannerCarta.astro';
-import HeroFooter from '../components/HeroFooter.astro';
-import Footer from '../components/Footer.astro';
-import SpeedInsights  from "@vercel/speed-insights/astro";
+import "@fontsource/poppins";
 ---
 
-<Layout title="Dos Carnes">
-	<head>
-		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Righteous&display=swap" rel="stylesheet">
-	</head>
-	<main>
-		<TopHeader />
-		<Header />
-		<Hero />
-		<CallBanner />
-		<BannerDoscarnes /> 
-		<Products />
-		<BannerCarta />
-		<HeroFooter />
-		<Footer />
-	    <SpeedInsights />
-	</main>
-</Layout>
-<style>
-	
-</style>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dos Carnes</title>
+    <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body class="bg-black text-white font-poppins">
+    <!-- Navbar -->
+    <header class="bg-yellow-500 text-black p-2 text-center text-sm font-semibold">
+        <p>Reserve su pedido <span class="text-white">Ahora!</span></p>
+    </header>
+    <nav class="bg-black flex justify-between items-center p-4">
+        <img src="../img/logo_doscarnes.png" alt="Dos Carnes Logo" class="h-12">
+        <ul class="hidden md:flex space-x-6 text-white font-semibold">
+            <li class="text-yellow-500">Inicio</li>
+            <li>La carta</li>
+            <li>Reservar</li>
+            <li>Delivery</li>
+            <li>Contacto</li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative text-center py-20 bg-cover bg-center" style="background-image: url('../img/hero/top_1.webp');">
+        <div class="bg-black bg-opacity-60 p-6 rounded-lg max-w-2xl mx-auto">
+            <h1 class="text-4xl font-bold">¡Bienvenidos a Dos Carnes!</h1>
+            <p class="mt-4 text-lg">Cada bocado es una celebración de nuestras raíces...</p>
+            <button class="mt-6 bg-yellow-500 text-black py-2 px-6 rounded-lg font-bold">Haz tu pedido</button>
+        </div>
+    </section>
+
+    <!-- Sección intermedia -->
+    <section class="bg-yellow-500 text-black py-6 text-center font-semibold">
+        <p>Disfruta el auténtico sabor Venezolano aquí</p>
+        <button class="mt-2 border border-black py-2 px-4 rounded-lg">Reservar ahora</button>
+    </section>
+
+    <!-- Galería -->
+    <section class="bg-black text-center py-10">
+        <h2 class="text-3xl font-bold">¡Dos Carnes!</h2>
+        <p class="mt-4 text-lg">Disfruta en Madrid de nuestras arepas, cachapas...</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6 px-4">
+            <img src="/arepas.jpg" class="rounded-lg">
+            <img src="/tequenos.jpg" class="rounded-lg">
+            <img src="/carne.jpg" class="rounded-lg">
+            <img src="/empanadas.jpg" class="rounded-lg">
+            <img src="/hallacas.jpg" class="rounded-lg">
+            <img src="/postre.jpg" class="rounded-lg">
+        </div>
+        <button class="mt-6 border border-yellow-500 py-2 px-4 rounded-lg">Ver la carta</button>
+    </section>
+
+    <!-- Sección hallacas -->
+    <section class="relative text-center py-20 bg-cover bg-center" style="background-image: url('../img/hero/top_2.webp');">
+        <div class="bg-black bg-opacity-60 p-6 rounded-lg max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold">Encarga tus hallacas</h2>
+            <p class="mt-4 text-lg">Este año, ya estamos tomando pedidos...</p>
+            <button class="mt-6 bg-yellow-500 text-black py-2 px-6 rounded-lg font-bold">Reservar ahora</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-10 text-center text-white text-sm">
+        <img src="/logo.png" alt="Dos Carnes Logo" class="h-12 mx-auto">
+        <p>© 2024 doscarnes.com - Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
