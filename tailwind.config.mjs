@@ -14,7 +14,8 @@ export default {
 		},
 		fontFamily: {
 			poppins: ['Poppins', 'sans-serif'],
-			righteous: ['Righteous', 'cursive'],
+			righteous: ['Righteous', 'sans-serif'],
+			lobster: ['Lobster', 'sans-serif'],
 		}
 	},
 	plugins: [animations],
