@@ -1,12 +1,10 @@
 ---
-import hero from '../img/hero/top_1.webp';
 import "../styles/global.css";
 ---
 
 <!-- Hero -->
-<section class="flex flex-wrap flex-col relative w-full">
-    <img src={hero.src} alt="hero" />
-    <div class="absolute inset-0 justify-center items-center text-center p-20">
+<section class="bg-stone-700 bg-[url(../img/hero/top_1.webp)] bg-blend-overlay flex flex-wrap flex-col relative w-full">
+    <div class="justify-center items-center text-center p-20">
         <h1 class="font-pacifico text-white text-4xl md:text-6xl font-normal mb-4">
             ¡Bienvenidos a Dos Carnes!
         </h1>
@@ -16,7 +14,7 @@ import "../styles/global.css";
             por el sabor venezolano!<br /> 
             ¡Buen provecho!
         </p>
-        <button class="font-poppins bg-black text-white hover:text-yellow-400 px-6 py-3 rounded-none border-yellow-400 border-4 font-medium text-2xl transition">
+        <button class="font-poppins shadow-xl shadow-yellow-500/50 bg-black text-white hover:text-yellow-400 px-6 py-3 rounded-none border-yellow-400 border-4 font-medium text-2xl transition">
             Haz tu pedido
         </button>
     </div>
