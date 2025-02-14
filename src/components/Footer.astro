@@ -1,7 +1,7 @@
 ---
 import logo from '../img/logo_doscarnes.png';
 import "../styles/global.css";
-import { faFacebook, faXTwitter, faInstagram, faWhatsapp, faCcStripe, faCcVisa } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faXTwitter, faInstagram, faWhatsapp, faCcStripe, faCcVisa, faCcMastercard, faCcPaypal } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 ---
 
@@ -53,8 +53,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
     <div class="font-poppins text-center md:text-left">
       <h3 class="text-yellow-400 font-bold text-lg mb-2">Métodos de pago</h3>
       <div class="flex justify-center space-x-4">
-        <FontAwesomeIcon icon={faCcStripe} />
-        <FontAwesomeIcon icon={faCcVisa} />
+        <FontAwesomeIcon icon={faCcStripe} size="6x"/>
+        <FontAwesomeIcon icon={faCcVisa}  />
+        <FontAwesomeIcon icon={faCcMastercard}  />
+        <FontAwesomeIcon icon={faCcPaypal}  />
       </div>
     </div>
   </div>
