@@ -1,18 +1,22 @@
 ---
 import "@fontsource/poppins";
+import { ClientRouter } from 'astro:transitions';
 import Layout from '../layouts/Layout.astro';
 import TopHeader from '../components/TopHeader.astro';
 import Header from '../components/Header.astro';
+import HeroContacto from '../components/HeroContacto.astro';
 import Footer from '../components/Footer.astro';
 import Contactenos from "../components/Contacto.astro";
 ---
 
 <Layout title="Dos Carnes">
 	<head>
+		<ClientRouter />
 	</head>
 	<main>
 		<TopHeader />
 		<Header />
+		<HeroContacto />
     	<Contactenos />
 		<Footer />
 	</main>

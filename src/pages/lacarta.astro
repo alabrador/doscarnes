@@ -1,5 +1,6 @@
 ---
 import "@fontsource/poppins";
+import { ClientRouter } from 'astro:transitions';
 import Layout from '../layouts/Layout.astro';
 import TopHeader from '../components/TopHeader.astro';
 import Header from '../components/Header.astro';
@@ -9,6 +10,7 @@ import LaCarta from "../components/LaCarta.astro";
 
 <Layout title="Dos Carnes">
 	<head>
+		<ClientRouter />
 	</head>
 	<main>
 		<TopHeader />
