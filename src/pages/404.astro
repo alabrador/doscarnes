@@ -1,0 +1,18 @@
+---
+import "@fontsource/poppins";
+import { ClientRouter } from 'astro:transitions';
+import Layout from '../layouts/Layout.astro';
+import NotFound from '../components/404.astro';
+---
+
+<Layout title="Dos Carnes">
+	<head>
+		<ClientRouter />
+	</head>
+	<main>
+		<NotFound />
+	</main>
+</Layout>
+<style>
+	
+</style>
